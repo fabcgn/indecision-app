@@ -1,5 +1,9 @@
 {
   "name": "indecision-app",
+  "scripts": {
+    "build-dev": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "live-server": "live-server public"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/fabcgn/indecision-app.git",
