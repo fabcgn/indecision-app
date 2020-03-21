@@ -1,43 +1,53 @@
-console.log ("App is running")
+console.log("App is running")
 
 const app = {
     title: "Indecision Application",
     subtitle: "Put your life in the hands of a computer!",
-    options: ["One", "Two"]
+    options: []
 }
+const onFormSubmit = (e) => {
+    e.preventDefault()
+    const option = e.target.elements.option.value
 
-const template = (
-    <div>
-        {app.title && <h1>{app.title}</h1>}
-        {app.subtitle && <p>{app.subtitle}</p>}
-        <p>{app.options.length > 0 ? "Here are your Options" : "No Options"}</p>
-        <ol>
-            <li>Item 1</li>
-            <li>Item 2</li>
-        </ol>
-    </div>
-)
-
-const user ={
-    name: "Fab Ian",
-    age:  19,
-    location: "Cologne",
-} 
-
-const getLocation = (location) => {
-    if (location) {
-        return <p>Location: {location}</p>
+    if (option) {
+        app.options.push(option)
+        e.target.elements.option.value = ""
+        console.log(app.options)
     }
+    render()
 }
 
-const templateTwo = (
-    <div>
-        <h1>{user.name ? user.name : "Anonymous"}</h1>
-        {(user.age && user.age >= 18)&& <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
-    </div>
-)
+const onRemoveAll = () => {
+    app.options = []
+    render()
+}
 
 const appRoot = document.getElementById("app")
 
-ReactDOM.render(template, appRoot)
+const render = () => {
+    const template = (
+        <div>
+            {app.title && <h1>{app.title}</h1>}
+            {app.subtitle && <p>{app.subtitle}</p>}
+            <p>{app.options.length > 0 ? "Here are your Options" : "No Options"}</p>
+            <p>{app.options.length}</p>
+            <button onClick={onRemoveAll}>Remove All</button>
+            {
+                [99, 98, 97]
+            }
+            <ol>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option" />
+                <button>Add Option</button>
+            </form>
+
+        </div>
+    )
+    ReactDOM.render(template, appRoot)
+}
+
+render()
+
