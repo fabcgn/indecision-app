@@ -6,15 +6,15 @@
   "author": "Fabian Seibt <faseibt@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "build-play": "babel src/playground/counterexample.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "build": "webpack --watch",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server",
     "serve": "live-server public/"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
     "babel-core": "^6.26.3",
     "babel-loader": "7",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "live-server": "^1.2.1",
@@ -22,7 +22,8 @@
     "react-dom": "^16.13.1",
     "validator": "^13.0.0",
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {}
 }
