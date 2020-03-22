@@ -1,17 +1,23 @@
 {
   "name": "indecision-app",
-  "scripts": {
-    "build-dev": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "build-play": "babel src/playground/counterexample.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "live-server": "live-server public"
-  },
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/fabcgn/indecision-app.git",
   "author": "Fabian Seibt <faseibt@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "build-play": "babel src/playground/counterexample.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "build": "webpack --watch",
+    "serve": "live-server public/"
+  },
   "dependencies": {
+    "babel-cli": "6.24.1",
     "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1"
-  }
+    "babel-preset-react": "6.24.1",
+    "live-server": "^1.2.1",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {}
 }
